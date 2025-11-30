@@ -105,10 +105,10 @@ function addNewEntry(date, task, description, status) {
     newEntry.style.opacity = '0';
     newEntry.style.transform = 'translateX(-20px)';
     
-    // Добавляем новую запись в начало списка
+    
     progressTimeline.insertBefore(newEntry, progressTimeline.firstChild);
     
-    // Запускаем анимацию
+    
     setTimeout(() => {
         newEntry.style.transition = 'all 0.3s ease';
         newEntry.style.opacity = '1';

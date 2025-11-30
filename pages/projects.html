@@ -16,7 +16,7 @@
             <div class="logo">
                 <img src="../images/logo.png" srcset="../images/logo.png 1x, ../images/logo@2x.png 2x" alt="Логотип"
                     width="40" height="40" class="retina-image">
-                <span>Тищенко Данил</span>
+                <span>Беломытцев Владимир</span>
             </div>
             <nav>
                 <ul role="list">
@@ -38,39 +38,9 @@
                     <button class="filter-btn">HTML</button>
                     <button class="filter-btn">Python</button>
                     <button class="filter-btn">C#</button>
-                    <button class="filter-btn">Bootstrap</button>
                 </div>
 
                 <div class="projects-grid projects-gallery">
-                    <!-- Личный сайт -->
-                    <div class="project-card" data-category="html" data-project="personal-site">
-                        <div class="project-image-container">
-                            <picture>
-                                <source srcset="../images/personal-site-thumb.webp" type="image/webp">
-                                <source srcset="../images/personal-site-thumb.jpg" type="image/jpeg">
-                                <img src="../images/personal-site-thumb.jpg" alt="Личный сайт с адаптивным дизайном"
-                                    loading="lazy" class="responsive-image object-fit-cover retina-image">
-                            </picture>
-                        </div>
-                        <h3>Личный сайт</h3>
-                        <p>HTML, CSS, JavaScript</p>
-                    </div>
-
-                    <!-- Игра на Python -->
-                    <div class="project-card" data-category="python" data-project="todo-app">
-                        <div class="project-image-container">
-                            <picture>
-                                <source srcset="../images/game-project.webp" type="image/webp">
-                                <source srcset="../images/game-project.jpg" type="image/jpeg">
-                                <img src="../images/game-project.jpg" alt="Игра разработанная на Python" loading="lazy"
-                                    class="responsive-image object-fit-cover retina-image">
-                            </picture>
-                        </div>
-                        <h3>Игра</h3>
-                        <p>Python, Pygame</p>
-                    </div>
-
-                    <!-- Калькулятор на C# -->
                     <div class="project-card" data-category="c#" data-project="ecommerce">
                         <div class="project-image-container">
                             <picture>
@@ -83,20 +53,20 @@
                         <h3>Calculator</h3>
                         <p>C#, .NET</p>
                     </div>
-
-                    <!-- Портфолио Bootstrap -->
-                    <div class="project-card" data-category="bootstrap" data-project="portfolio">
+                    <div class="project-card" data-category="html" data-project="poiskovik">
                         <div class="project-image-container">
                             <picture>
-                                <source srcset="../images/portfolio-project.webp" type="image/webp">
-                                <source srcset="../images/portfolio-project.jpg" type="image/jpeg">
-                                <img src="../images/portfolio-project.jpg" alt="Портфолио на Bootstrap" loading="lazy"
+                                <source srcset="../images/poiskovik.webp" type="image/webp">
+                                <source srcset="../images/poiskovik.jpg" type="image/jpeg">
+                                <img src="../images/calculator-project.jpg" alt="поисковик" loading="lazy"
                                     class="responsive-image object-fit-cover retina-image">
                             </picture>
                         </div>
-                        <h3>Портфолио</h3>
-                        <p>Bootstrap, jQuery</p>
+                        <h3>Поисковик</h3>
+                        <p>HTML, css, js</p>
                     </div>
+
+                    
                 </div>
             </div>
         </section>
@@ -133,45 +103,27 @@
     <script>
         // Данные проектов
         const projectsData = {
-            'personal-site': {
-                title: 'Личный сайт',
-                description: 'Разработка персонального веб-сайта с информацией обо мне, моих проектах и контактах. Сайт включает в себя адаптивный дизайн, современную верстку и интерактивные элементы.',
+            'poiskovik': {
+                title: 'поисковик',
+                description: 'Сайт включает в себя адаптивный дизайн, современную верстку и интерактивные элементы.',
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Flexbox', 'Grid'],
-                duration: '2 недели',
+                duration: '3 недели',
                 status: 'Завершен',
-                codeLink: 'https://github.com/Pyyho/Practica-Front-Back07',
-                demoLink: '#'
-            },
-            'todo-app': {
-                title: 'Игра',
-                description: 'Увлекательная игра для проведения свободного времени, разработанная на Python с использованием современных библиотек для создания игрового интерфейса.',
-                technologies: ['Python', 'Pygame', 'ООП'],
-                duration: '1,5 недели',
-                status: 'Завершен',
-                codeLink: 'https://github.com/Pyyho/Game',
+                codeLink: 'https://github.com/vova1290-hub/ThreatSearcherMIREA.git',
                 demoLink: '#'
             },
             'ecommerce': {
                 title: 'Calculator',
                 description: 'Полезный и простой калькулятор с интуитивно понятным интерфейсом, разработанный на C#. Поддерживает основные математические операции и имеет удобный дизайн.',
                 technologies: ['C#', '.NET', 'WinForms'],
-                duration: '4 дня',
+                duration: '2 дня',
                 status: 'Завершен',
-                codeLink: 'https://github.com/Pyyho/Calcilator',
+                codeLink: 'https://github.com/vova1290-hub/calculator.git',
                 demoLink: '#'
             },
-            'portfolio': {
-                title: 'Портфолио на Bootstrap',
-                description: 'Адаптивное портфолио, созданное с использованием фреймворка Bootstrap. Включает галерею проектов, контактную форму и современный дизайн с анимациями.',
-                technologies: ['Bootstrap 5', 'jQuery', 'SASS', 'Responsive Design'],
-                duration: '2 недели',
-                status: 'Завершен',
-                codeLink: 'https://github.com/Pyyho/frontend-and-backend-practice-07',
-                demoLink: '#'
-            }
         };
 
-        // Элементы DOM
+       
         const modal = document.getElementById('projectModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
@@ -184,7 +136,7 @@
         const projectCards = document.querySelectorAll('.project-card');
         const filterBtns = document.querySelectorAll('.filter-btn');
 
-        // Ленивая загрузка изображений
+        
         document.addEventListener('DOMContentLoaded', function () {
             const lazyImages = document.querySelectorAll('img[loading="lazy"]');
 
@@ -201,7 +153,7 @@
             lazyImages.forEach(img => imageObserver.observe(img));
         });
 
-        // Открытие модального окна
+        
         projectCards.forEach(card => {
             card.addEventListener('click', () => {
                 const projectId = card.getAttribute('data-project');
@@ -229,7 +181,7 @@
             });
         });
 
-        // Закрытие модального окна
+       
         function closeModal() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -243,7 +195,7 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // Фильтрация проектов
+       
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
@@ -267,7 +219,7 @@
     </script>
 
     <style>
-        /* Дополнительные стили для страницы проектов */
+       
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -336,7 +288,7 @@
             color: white;
         }
 
-        /* Модальное окно */
+        
         .modal {
             display: none;
             position: fixed;
@@ -414,7 +366,7 @@
             background: var(--secondary-color);
         }
 
-        /* Адаптивность */
+       
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
