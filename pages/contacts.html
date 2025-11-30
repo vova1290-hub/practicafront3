@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Контакты - Личный сайт студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles-responsive-images.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo.png" srcset="../images/logo.png 1x, images/logo@2x.png 2x" alt="Логотип"
+                    width="40" height="40">
+                <span>Тищенко Данил</span>
+            </div>
+            <nav role="navigation" aria-label="Основная навигация">
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="diary.html">Дневник</a></li>
+                    <li><a href="contacts.html" class="active">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" role="main" tabindex="-1">
+        <section class="contacts" aria-labelledby="contacts-heading">
+            <div class="container">
+                <h1 id="contacts-heading">Свяжитесь со мной</h1>
+
+                <div class="contact-content">
+                    <form class="contact-form" aria-labelledby="contacts-heading" novalidate>
+                        <fieldset>
+                            <legend class="sr-only">Форма обратной связи</legend>
+
+                            <p class="required-fields-note" aria-hidden="true">
+                                Поля, отмеченные звёздочкой (<span class="required" aria-hidden="true">*</span>),
+                                обязательны для заполнения.
+                            </p>
+                            <p class="sr-only">
+                                Все поля формы являются обязательными для заполнения.
+                            </p>
+
+                            <div class="form-group">
+                                <label for="name" class="required">
+                                    Имя
+                                </label>
+                                <input type="text" id="name" name="name" required aria-required="true"
+                                    aria-describedby="name-hint name-error" placeholder="Введите ваше полное имя">
+                                <span id="name-hint" class="sr-only">
+                                    Введите ваше полное имя. Поле обязательно для заполнения.
+                                </span>
+                                <span id="name-error" class="error-message" role="alert" aria-live="polite">
+                                    Пожалуйста, введите ваше имя
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="required">
+                                    Электронная почта
+                                </label>
+                                <input type="email" id="email" name="email" required required aria-required="true"
+                                    aria-describedby="email-hint email-error" placeholder="example@mail.ru" autocomplete="email">
+                                <span id="email-hint" class="sr-only">
+                                    Введите действительный адрес электронной почты. Поле обязательно для заполнения.
+                                </span>
+                                <span id="email-error" class="error-message" role="alert" aria-live="polite">
+                                    Пожалуйста, введите корректный email адрес
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="required">
+                                    Сообщение
+                                </label>
+                                <textarea id="message" name="message" rows="5" required aria-required="true"
+                                    aria-describedby="message-hint message-error"
+                                    placeholder="Опишите цель вашего обращения..."></textarea>
+                                <span id="message-hint" class="sr-only">
+                                    Введите текст вашего сообщения. Поле обязательно для заполнения.
+                                </span>
+                                <span id="message-error" class="error-message" role="alert" aria-live="polite">
+                                    Пожалуйста, введите текст сообщения
+                                </span>
+                            </div>
+
+                            <button type="submit" class="btn" aria-describedby="submit-hint">
+                                Отправить сообщение
+                            </button>
+
+                            <span id="submit-hint" class="sr-only">
+                                Нажмите кнопку для отправки формы обратной связи
+                            </span>
+                        </fieldset>
+
+                        <div id="form-success" class="success-message" role="alert" aria-live="polite">
+                            <span role="img" aria-label="Успешно">✅</span>
+                            Сообщение успешно отправлено! Я свяжусь с вами в ближайшее время.
+                        </div>
+                    </form>
+
+                    <div class="contact-info" role="complementary" aria-labelledby="contact-info-heading">
+                        <h2 id="contact-info-heading">Контактная информация</h2>
+
+                        <div role="list">
+                            <p role="listitem">
+                                <span aria-hidden="true">✉️</span>
+                                <span>Email:
+                                    <a href="tishchenko.d.r@edu.mirea.ru"
+                                        aria-label="Написать письмо на tishchenko.d.r@edu.mirea.ru">
+                                        tishchenko.d.r@edu.mirea.ru
+                                    </a>
+                                </span>
+                            </p>
+                            <p role="listitem">
+                                <span aria-hidden="true">📱</span>
+                                <span>GitHub:
+                                    <a href="https://github.com/Pyyho" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Перейти на GitHub профиль Pyyho (откроется в новой вкладке)">
+                                        Pyyho
+                                    </a>
+                                </span>
+                            </p>
+                            <p role="listitem">
+                                <span aria-hidden="true">📍</span>
+                                <span>Москва, Россия</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Контакты</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/contacts.js"></script>
+</body>
+
+</html>

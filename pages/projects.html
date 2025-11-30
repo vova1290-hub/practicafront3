@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Проекты - Личный сайт студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles-responsive-images.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo.png" srcset="../images/logo.png 1x, ../images/logo@2x.png 2x" alt="Логотип"
+                    width="40" height="40" class="retina-image">
+                <span>Тищенко Данил</span>
+            </div>
+            <nav>
+                <ul role="list">
+                    <li role="listitem"><a href="../index.html">Главная</a></li>
+                    <li role="listitem"><a href="projects.html" class="active">Проекты</a></li>
+                    <li role="listitem"><a href="diary.html">Дневник</a></li>
+                    <li role="listitem"><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="projects">
+            <div class="container">
+                <h1>Мои проекты</h1>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">Все</button>
+                    <button class="filter-btn">HTML</button>
+                    <button class="filter-btn">Python</button>
+                    <button class="filter-btn">C#</button>
+                    <button class="filter-btn">Bootstrap</button>
+                </div>
+
+                <div class="projects-grid projects-gallery">
+                    <!-- Личный сайт -->
+                    <div class="project-card" data-category="html" data-project="personal-site">
+                        <div class="project-image-container">
+                            <picture>
+                                <source srcset="../images/personal-site-thumb.webp" type="image/webp">
+                                <source srcset="../images/personal-site-thumb.jpg" type="image/jpeg">
+                                <img src="../images/personal-site-thumb.jpg" alt="Личный сайт с адаптивным дизайном"
+                                    loading="lazy" class="responsive-image object-fit-cover retina-image">
+                            </picture>
+                        </div>
+                        <h3>Личный сайт</h3>
+                        <p>HTML, CSS, JavaScript</p>
+                    </div>
+
+                    <!-- Игра на Python -->
+                    <div class="project-card" data-category="python" data-project="todo-app">
+                        <div class="project-image-container">
+                            <picture>
+                                <source srcset="../images/game-project.webp" type="image/webp">
+                                <source srcset="../images/game-project.jpg" type="image/jpeg">
+                                <img src="../images/game-project.jpg" alt="Игра разработанная на Python" loading="lazy"
+                                    class="responsive-image object-fit-cover retina-image">
+                            </picture>
+                        </div>
+                        <h3>Игра</h3>
+                        <p>Python, Pygame</p>
+                    </div>
+
+                    <!-- Калькулятор на C# -->
+                    <div class="project-card" data-category="c#" data-project="ecommerce">
+                        <div class="project-image-container">
+                            <picture>
+                                <source srcset="../images/calculator-project.webp" type="image/webp">
+                                <source srcset="../images/calculator-project.jpg" type="image/jpeg">
+                                <img src="../images/calculator-project.jpg" alt="Калькулятор на C#" loading="lazy"
+                                    class="responsive-image object-fit-cover retina-image">
+                            </picture>
+                        </div>
+                        <h3>Calculator</h3>
+                        <p>C#, .NET</p>
+                    </div>
+
+                    <!-- Портфолио Bootstrap -->
+                    <div class="project-card" data-category="bootstrap" data-project="portfolio">
+                        <div class="project-image-container">
+                            <picture>
+                                <source srcset="../images/portfolio-project.webp" type="image/webp">
+                                <source srcset="../images/portfolio-project.jpg" type="image/jpeg">
+                                <img src="../images/portfolio-project.jpg" alt="Портфолио на Bootstrap" loading="lazy"
+                                    class="responsive-image object-fit-cover retina-image">
+                            </picture>
+                        </div>
+                        <h3>Портфолио</h3>
+                        <p>Bootstrap, jQuery</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно проекта -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Название проекта</h2>
+                <button class="close-btn" aria-label="Закрыть окно">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="project-info">
+                    <p id="modalDescription">Описание проекта...</p>
+                    <div class="tech-stack" id="modalTechStack"></div>
+                    <p><strong>Срок выполнения:</strong> <span id="modalDuration">...</span></p>
+                    <p><strong>Статус:</strong> <span id="modalStatus">...</span></p>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" id="modalCodeLink" target="_blank" rel="noopener">Исходный код</a>
+                    <a href="#" class="project-link" id="modalDemoLink" target="_blank" rel="noopener">Демо</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Контакты</p>
+        </div>
+    </footer>
+
+    <script>
+        // Данные проектов
+        const projectsData = {
+            'personal-site': {
+                title: 'Личный сайт',
+                description: 'Разработка персонального веб-сайта с информацией обо мне, моих проектах и контактах. Сайт включает в себя адаптивный дизайн, современную верстку и интерактивные элементы.',
+                technologies: ['HTML5', 'CSS3', 'JavaScript', 'Flexbox', 'Grid'],
+                duration: '2 недели',
+                status: 'Завершен',
+                codeLink: 'https://github.com/Pyyho/Practica-Front-Back07',
+                demoLink: '#'
+            },
+            'todo-app': {
+                title: 'Игра',
+                description: 'Увлекательная игра для проведения свободного времени, разработанная на Python с использованием современных библиотек для создания игрового интерфейса.',
+                technologies: ['Python', 'Pygame', 'ООП'],
+                duration: '1,5 недели',
+                status: 'Завершен',
+                codeLink: 'https://github.com/Pyyho/Game',
+                demoLink: '#'
+            },
+            'ecommerce': {
+                title: 'Calculator',
+                description: 'Полезный и простой калькулятор с интуитивно понятным интерфейсом, разработанный на C#. Поддерживает основные математические операции и имеет удобный дизайн.',
+                technologies: ['C#', '.NET', 'WinForms'],
+                duration: '4 дня',
+                status: 'Завершен',
+                codeLink: 'https://github.com/Pyyho/Calcilator',
+                demoLink: '#'
+            },
+            'portfolio': {
+                title: 'Портфолио на Bootstrap',
+                description: 'Адаптивное портфолио, созданное с использованием фреймворка Bootstrap. Включает галерею проектов, контактную форму и современный дизайн с анимациями.',
+                technologies: ['Bootstrap 5', 'jQuery', 'SASS', 'Responsive Design'],
+                duration: '2 недели',
+                status: 'Завершен',
+                codeLink: 'https://github.com/Pyyho/frontend-and-backend-practice-07',
+                demoLink: '#'
+            }
+        };
+
+        // Элементы DOM
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalTechStack = document.getElementById('modalTechStack');
+        const modalDuration = document.getElementById('modalDuration');
+        const modalStatus = document.getElementById('modalStatus');
+        const modalDemoLink = document.getElementById('modalDemoLink');
+        const modalCodeLink = document.getElementById('modalCodeLink');
+        const closeBtn = document.querySelector('.close-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        // Ленивая загрузка изображений
+        document.addEventListener('DOMContentLoaded', function () {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        });
+
+        // Открытие модального окна
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-project');
+                const projectData = projectsData[projectId];
+
+                if (projectData) {
+                    modalTitle.textContent = projectData.title;
+                    modalDescription.textContent = projectData.description;
+                    modalDuration.textContent = projectData.duration;
+                    modalStatus.textContent = projectData.status;
+                    modalDemoLink.href = projectData.demoLink;
+                    modalCodeLink.href = projectData.codeLink;
+
+                    modalTechStack.innerHTML = '';
+                    projectData.technologies.forEach(tech => {
+                        const techTag = document.createElement('span');
+                        techTag.className = 'tech-tag';
+                        techTag.textContent = tech;
+                        modalTechStack.appendChild(techTag);
+                    });
+
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Закрытие модального окна
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Фильтрация проектов
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.textContent.toLowerCase();
+                projectCards.forEach(card => {
+                    if (filter === 'все') {
+                        card.style.display = 'flex';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        if ((filter === 'c#' && category === 'csharp') || category === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Дополнительные стили для страницы проектов */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            margin: 0.5rem 0;
+            color: var(--dark-text);
+            font-size: 1.25rem;
+        }
+
+        .project-card p {
+            color: var(--light-text);
+            margin: 0;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+        }
+
+        .modal-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: var(--light-bg);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-image-container {
+                height: 180px;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-image-container {
+                height: 150px;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+        }
+    </style>
+</body>
+
+</html>

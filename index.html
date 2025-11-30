@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Личный сайт студента</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles-responsive-images.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" 
+                     srcset="images/logo.png 1x, images/logo@2x.png 2x" 
+                     alt="Логотип" 
+                     width="40" 
+                     height="40">
+                <span>Беломытцев Владимир</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="pages/projects.html">Проекты</a></li>
+                    <li><a href="pages/diary.html">Дневник</a></li>
+                    <li><a href="pages/contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Привет! Я студент<br>группы ЭФБО-07-24</h1>
+                        <p>Увлекаюсь веб-разработкой</p>
+                        <a href="assets/resume.pdf" class="btn" download>Скачать резюме</a>
+                    </div>
+                    <div class="hero-image">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="images/student-desktop.webp" type="image/webp">
+                            <source media="(min-width: 768px)" srcset="images/student-tablet.webp" type="image/webp">
+                            <source srcset="images/student-mobile.webp" type="image/webp">
+                            <source media="(min-width: 1200px)" srcset="images/student-desktop.jpg">
+                            <source media="(min-width: 768px)" srcset="images/student-tablet.jpg">
+                            <img src="images/student-mobile.jpg" 
+                                 alt="Фото студента" 
+                                 class="responsive-image hero__photo"
+                                 loading="eager">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container">
+                <h2>Мои навыки</h2>
+                <div class="skill-item">
+                    <span>HTML/CSS</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                    <span>80%</span>
+                </div>
+                <div class="skill-item">
+                    <span>JavaScript</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 40%"></div>
+                    </div>
+                    <span>40%</span>
+                </div>
+                <div class="skill-item">
+                    <span>Python</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 50%"></div>
+                    </div>
+                    <span>50%</span>
+                </div>
+                <div class="skill-item">
+                    <span>C#</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 30%"></div>
+                    </div>
+                    <span>30%</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-preview">
+            <div class="container">
+                <h2>Лучшие проекты</h2>
+                <div class="projects-grid">                  
+
+                    <a href="https://github.com/vova1290-hub/calculator.git" class="project-card" target="_blank">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="images/calculator-project.webp" type="image/webp">
+                                <img src="images/calculator-project.jpg" 
+                                     alt="Калькулятор на C#" 
+                                     class="object-fit-cover"
+                                     loading="lazy"
+                                     width="400" 
+                                     height="300">
+                            </picture>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Calculator</h3>
+                            <p class="project-description">Приложение калькулятор с использованием C#.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C#</span>
+                            </div>
+                            <span class="project-link">Смотреть проект <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/vova1290-hub/ThreatSearcherMIREA.git" class="project-card" target="_blank">
+                        <div class="project-image">
+                            <picture>
+                                <source srcset="images/poiskovik.webp" type="image/webp">
+                                <img src="images/poiskovik.jpg" 
+                                     alt="поисковик" 
+                                     class="object-fit-cover"
+                                     loading="lazy"
+                                     width="400" 
+                                     height="300">
+                            </picture>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Поисковик</h3>
+                            <p class="project-description">верстка для поисковика</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">html,css,js</span>
+                            </div>
+                            <span class="project-link">Смотреть проект <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Контакты</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        });
+    </script>
+</body>
+</html>
